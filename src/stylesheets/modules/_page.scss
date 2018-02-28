@@ -1,0 +1,59 @@
+//@import url('https://fonts.googleapis.com/css?family=Cabin:400,400i,500,500i,600,600i,700,700i');
+
+$base-font-size: 17px;
+
+@function em($px, $base: $base-font-size) {
+  @return round(($px/$base) * 1rem);
+}
+
+$base-padding: em(20px);
+$border-radius: em(20px);
+$h1-size: em(60px);
+$h2-size: em(50px);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: $base-font-size;
+  background: #F2F2F2;
+  font-family: 'Cabin', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 900 !important;
+}
+
+h1 {
+  font-size: em(60px);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 900 !important;
+}
+
+h1 {
+  font-size: $h1-size;
+}
+
+img {
+  background: #ddd;
+}
+
+body {
+  //transition: background 1s, filter 1s;
+  img, video {
+  }
+  &.nightmode {
+	filter: invert(1) hue-rotate(180deg);
+	background: #252525;
+
+	img, video {
+	  -webkit-filter: invert(1) hue-rotate(180deg);
+	  filter: invert(1) hue-rotate(180deg);
+	}
+  }
+}

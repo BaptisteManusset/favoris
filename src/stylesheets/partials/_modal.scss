@@ -1,0 +1,129 @@
+
+.modal {
+  &_background {
+	content: "";
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	display: flex;
+	padding: 0;
+
+	@media only screen and (max-width: 0) {
+	  //background: #7CA821;
+	}
+	@media only screen and (min-width: 300px) {
+	  //background: coral;
+	}
+	@media only screen and (min-width: 480px) {
+	  //background: #8a6d3b;
+	  padding: 4rem 0;
+
+	}
+	@media only screen and (min-width: 768px) {
+	  //background: #634c84;
+	}
+	@media only screen and (min-width: 1024px) {
+	  //background: #ffba00;
+	}
+	@media only screen and (min-width: 1700px) {
+	  //background: #ff2222;
+	}
+	z-index: 1000;
+	background: rgba(0, 0, 0, 0.3);
+  }
+  &_card {
+	width: 100%;
+	//margin-top: 5rem;
+  }
+  &_content {
+	background: #fff;
+	//height: 100%;
+	width: 100%;
+
+	@media only screen and (max-width: 0) {
+	  //background: #7CA821;
+	}
+	@media only screen and (min-width: 300px) {
+	  //background: coral;
+
+	}
+	@media only screen and (min-width: 480px) {
+	  //background: #8a6d3b;
+	  max-height: 90vh;
+	  width: 100%;
+
+	}
+	@media only screen and (min-width: 768px) {
+	  //background: #634c84;
+	  width: 80%;
+
+	}
+	@media only screen and (min-width: 1024px) {
+	  //background: #ffba00;
+	  width: 70%;
+
+	}
+	@media only screen and (min-width: 1700px) {
+	  //background: #ff2222;
+	  width: 60%;
+
+	}
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	img {
+	  width: 100%;
+	  max-height: 50vh;
+	}
+  }
+  &_header {
+	height: 15rem;
+	overflow: hidden;
+  }
+  &_description {
+	padding: 1rem;
+	overflow-y: auto;
+	max-height: 19rem;
+  }
+  &_footer {
+	padding: .2rem 0 1rem;
+	background: #fff;
+
+  }
+  &_button {
+	&_close {
+	  position: absolute;
+	  top: 1rem;
+	  right: 1rem;
+	  @extend .button;
+	}
+  }
+  &_permalink, &_partage, &_edit {
+	@extend .button;
+	line-height: 42px;
+  }
+  &_permalink {
+	//bottom: 1rem;
+	//position: absolute;
+  }
+  &_title {
+	//text-align: center;
+	font-size: 3rem;
+	padding: 0 1rem;
+	padding-top: 1rem;
+	h3 {
+
+	  @media only screen and (max-width: 768px) {
+		font-size: 2rem;
+	  }
+	}
+  }
+
+  &_tag {
+	@media only screen and (min-width: 768px) {
+	  margin: 0;
+	}
+  }
+}

@@ -1,0 +1,56 @@
+%gutter {
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.05);
+  @media only screen and (min-width: 768px) {
+	padding: $base-padding;
+	margin: 13px;
+  }
+  width: auto;
+  background: #fff;
+  border: 0;
+  &:first-letter {
+	//text-transform: uppercase;
+  }
+}
+
+.button {
+  min-width: 46px;
+  height: 46px;
+  display: inline-block;
+  @extend %gutter;
+  margin: 0;
+  margin-left: 1rem;
+  padding: 0 .5rem;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  border: .1rem solid #000;
+
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+
+}
+
+%gradiant {
+  background: #DC281E;
+  color: white;
+}
+
+.tag {
+  @extend %gutter;
+  font-size: 1rem;
+  font-weight: 900;
+  text-decoration: none;
+  padding: .2rem .4rem;
+  line-height: 1em;
+  background: black;
+  color: #fff;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+%firstletter{
+  &:first-letter{
+    //text-transform: uppercase;
+  }
+}

@@ -1,0 +1,112 @@
+.menu {
+  &_main {
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.05);
+	@media only screen and (min-width: 768px) {
+	  padding: $base-padding;
+	  margin: 13px;
+	}
+	width: auto;
+	background: #fff;
+	border: 0;
+	&:first-letter {
+	  //text-transform: uppercase;
+	}
+	display: flex;
+	flex-direction: column;
+	max-width: 100%;
+	.row {
+	  padding: 0 10px;
+
+	}
+	&_logo {
+	  width: 110px;
+	  display: inline-block;
+	  background: transparent;
+	}
+	h1, p {
+	  display: inline-block;
+	  a {
+		color: inherit;
+		text-decoration: inherit;
+	  }
+	}
+	h1 {
+
+	}
+	p {
+	  &:first-letter {
+		//text-transform: capitalize;
+	  }
+	  &.desc {
+		margin-left: 1rem;
+	  }
+	}
+	button {
+	  display: inline-block;
+	  height: 6rem;
+	  width: 6rem;
+	  text-align: center;
+	  background: transparent;
+	  //border: .1rem solid #000;
+	  font-weight: bold;
+	  font-size: 1.3rem;
+	}
+  }
+  &_category {
+	&_container {
+	  @extend %gutter;
+	  z-index: 1;
+	  position: fixed;
+
+	  padding: 0;
+	  margin: 0;
+	  top: 0;
+	  bottom: 0;
+	  right: 0;
+	  left: 0;
+	  overflow: auto;
+	  @extend %gutter;
+	  text-align: center;
+	  @media only screen and (min-width: 768px) {
+
+		top: 3rem;
+		bottom: 3rem;
+		right: 3rem;
+		left: 3rem;
+	  }
+	  @media only screen and (max-width: 768px) {
+		//flex-direction: column;
+
+	  }
+	}
+	&_item {
+	  display: block;
+	  padding: 1rem;
+	  //@extend .button;
+	  border: 0;
+	  border-bottom: .1rem solid #000;
+	  margin: 0 $base-padding;
+	  text-decoration: none;
+	  font-weight: bold;
+	  //@extend %firstletter;
+	  @media only screen and (min-width: 768px) {
+		font-size: 2rem;
+	  }
+	}
+	&_close {
+	  position: fixed;
+	  top: 1rem;
+	  right: 1rem;
+	  @extend .button;
+	  @media only screen and (min-width: 768px) {
+		top: $base-padding*4;
+		right: $base-padding*4;
+	  }
+	}
+	&_toggle {
+	  float: right;
+	  @extend .button
+
+	}
+  }
+}

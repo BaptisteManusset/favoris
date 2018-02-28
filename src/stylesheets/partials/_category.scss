@@ -1,0 +1,18 @@
+
+.category {
+  &_list {
+	list-style: none;
+	li {
+	  display: inline-block;
+	}
+	a {
+	  margin: .5rem .1rem;
+	}
+  }
+  &_item {
+	display: inline-block;
+	//width: auto;
+	@extend .tag;
+	//color: white;
+  }
+}

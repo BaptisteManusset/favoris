@@ -1,0 +1,9 @@
+.control {
+  button {
+	@extend %gutter;
+	width: 245px;
+	height: 70px;
+	font-size: 40px;
+	padding: 0;
+  }
+}

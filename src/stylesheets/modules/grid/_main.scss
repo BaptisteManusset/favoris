@@ -1,0 +1,57 @@
+.row {
+
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  & [class^=col] {
+	padding: 15px 0;
+	flex: 1;
+	& > div {
+	}
+  }
+
+  @for $i from 1 through 10 {
+	.col#{$i} {
+	  flex: $i;
+	  min-width: #{10*$i}px;
+	}
+  }
+
+  &_right {
+	flex-direction: row-reverse;
+  }
+}
+
+/* SMARTPHONES PORTRAIT */
+@media only screen and (min-width: 300px) {
+  body {
+	//background: green;
+  }
+
+}
+
+
+
+/* SMARTPHONES LANDSCAPE */
+@media only screen and (min-width: 480px) {
+  body {
+	//background: yellow;
+  }
+}
+
+/* TABLETS PORTRAIT */
+@media only screen and (min-width: 768px) {
+  body {
+	//background: red;
+  }
+
+}
+
+/* TABLET LANDSCAPE / DESKTOP */
+@media only screen and (min-width: 1024px) {
+  body {
+	//background: purple;
+  }
+}
+

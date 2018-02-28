@@ -1,0 +1,39 @@
+.single {
+  section#content {
+	@extend %gutter;
+  }
+  .solo {
+	//border: 1px solid #000;
+	h3 {
+	  text-decoration: none;
+	  display: inline-block;
+	  margin-right: 1rem;
+	}
+	h3 {
+	  font-size: 3rem;
+	}
+	&_lien {
+	  @extend .button;
+	  margin: 0;
+	  padding: 0.5rem;
+	  height: auto;
+	}
+	&_tag {
+	  @extend .tag;
+	  font-size: 1.2rem;
+	}
+	&_thumbnail {
+	  text-align: center;
+	  img {
+		margin: 0 auto;
+		display: block;
+		//min-width: 50%;
+		height: auto;
+		max-height: 30rem !important;
+	  }
+	}
+	&_content {
+	  padding: 2rem 0;
+	}
+  }
+}
