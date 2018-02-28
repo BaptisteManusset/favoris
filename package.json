@@ -1,0 +1,43 @@
+{
+  "name": "projet",
+  "version": "0.0.1",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-html-extend": "^1.1.6"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-load-plugins": "latest",
+    "browser-sync": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-cssbeautify": "latest",
+    "gulp-csscomb": "latest",
+    "gulp-csso": "latest",
+    "gulp-html-partial": "latest",
+    "gulp-rename": "latest",
+    "gulp-imagemin": "latest",
+    "gulp-cache": "latest",
+    "gulp-html-beautify": "latest",
+    "gulp-sass": "latest",
+    "gulp-notify": "latest",
+    "gulp-size": "latest",
+    "gulp-concat": "latest",
+    "gulp-concat-js": "latest",
+    "gulp-sourcemaps": "latest",
+    "gulp-uglify": "latest",
+    "gulp-js-obfuscator": "latest",
+    "gulp-ignore": "latest",
+    "gulp-order": "latest",
+    "gulp-replace": "latest",
+    "gulp-iconfont": "latest",
+    "gulp-iconfont-css": "latest",
+    "gulp-consolidate": "latest"
+  }
+}
