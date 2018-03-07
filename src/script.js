@@ -82,6 +82,12 @@ $(document).ready(function () {
 				break;
 		}
 	});
+
+
+	$(".search_form_toggle").click(function () {
+		console.log("zergthg");
+		$(this).toggleClass("actif");
+	})
 });
 $(document).resize(function () {
 	$(".fav_dummy").width($(".fav_card:first").width());

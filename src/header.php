@@ -41,12 +41,61 @@
 					<p class="desc"><?php bloginfo( "description" ) ?></p>
 				</div>
 				<div class="col">
+					<button class="search_form_toggle"> recherche</button>
+				</div>
+				<div class="col">
 					<button class="menu_category_toggle">Menu</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+
+<div class="search_container">
+	<form role="search" method="get" class="search_form" action="">
+
+		<div class="search_parts">
+			<label class="screen-reader-text" for="s">Search for:</label>
+			<input type="text" value="" name="s" class="search_input_main" placeholder="recherche"/>
+		</div>
+		<div class="search_parts">
+			<ul>
+				<?php
+				//for each category, show all posts
+				$cat_args   = array(
+					'orderby' => 'name',
+					'order'   => 'ASC'
+				);
+				$categories = get_categories( $cat_args );
+				foreach ( $categories as $category ) {
+					if ( $category->slug != "non-classe" ):
+						$couleur = get_field( 'couleur', $category->taxonomy . '_' . $category->term_id );
+						?>
+						<li>
+							<input type="checkbox" name="cat"
+							       id="cat-<?php echo $category->term_id . $category->name ?>"
+							       value="<?php echo $category->term_id; ?>" class="search_label">
+							<label for="cat-<?php echo $category->term_id . $category->name ?>"
+							       style="background: <?php echo $couleur ?>;" class="search_label">
+								<?php echo $category->name ?> </label>
+						</li>
+						<?php
+					endif;
+				}
+				?>
+
+			</ul>
+		</div>
+		<div class="search_parts">
+			<input type="submit" id="searchsubmit" value="Rechercher"/>
+		</div>
+	</form>
+
+
+</div>
+
+
 <div class="menu_category_container" style="display: none">
 	<!--	<div class="menu_category_group">-->
 	<?php

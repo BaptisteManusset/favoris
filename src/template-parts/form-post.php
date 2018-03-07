@@ -1,8 +1,5 @@
 <?php
 $user = wp_get_current_user();
-//var_dump( current_user_can( "edit_posts" ) );
-//if ( in_array( 'author', (array) $user->roles ) ) {
-//The user has the "author" role
 if ( current_user_can( "edit_posts" ) == true ):
 	?>
 

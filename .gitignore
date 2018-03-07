@@ -145,6 +145,6 @@ externe/acf/
 /sitemap.xml
 /sitemap.xml.gz
 
-
+src/readme.txt
 
 # End of https://www.gitignore.io/api/node,wordpress,phpstorm+all
