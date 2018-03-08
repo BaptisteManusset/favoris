@@ -117,10 +117,51 @@
 	text-align: right;
   }
   &_button {
-	padding: 1rem;
+	position: relative;
+	overflow: hidden;
 	img {
-	  background: #fff;
+	  background: transparent;
+	  position: relative;
+	  z-index: 1;
+	  transition: all .3s;
+	}
+	&::after {
+	  margin: 0;
+	  padding: 0;
+	  position: absolute;
+	  content: " ";
+	  top: 0;
+	  bottom: 0;
+	  left: 0;
+	  right: 0;
+	  animation: all 1s;
+	  transform: scale(0);
+	  //width: 0;
+	  transition: all .3s;
+	  border-radius: 300px;
+	  box-shadow: inset 0px 0px 130px 1px #49ff78;
+
+	}
+	&:hover {
+	  color: white;
+	  &::after {
+		animation: all 1s;
+		background: #49ff78;
+		transform: scale(1);
+		box-shadow: inset 0px 0px 130px 1px rgba(73, 255, 120, 0);
+		border-radius: 0;
+	  }
+	  img {
+		filter: invert(1);
+	  }
 	}
   }
 }
 
+body.nightmode {
+  .menu_button {
+	img {
+	  //filter: invert(1);
+	}
+  }
+}
