@@ -98,6 +98,7 @@ function add_js_scripts() {
 	wp_enqueue_script( 'script', get_template_directory_uri() . '/script.js', array(), '1.0', true );
 	wp_localize_script( 'script', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
 }
+
 //definition des requetes ajax
 add_action( 'wp_ajax_modal_post', 'modal_post' );
 add_action( 'wp_ajax_nopriv_modal_post', 'modal_post' );
@@ -157,11 +158,12 @@ add_action( 'wp_ajax_nopriv_single_post', 'single_post_insert' );
  *
  * @return string
  */
-function title_format($content) {
+function title_format( $content ) {
 	return "<i>🔒</i>%s<i>🔒</i>";
 }
-add_filter("private_title_format", "title_format");
-add_filter("protected_title_format", "title_format");
+
+add_filter( "private_title_format", "title_format" );
+add_filter( "protected_title_format", "title_format" );
 
 
 /**
@@ -229,15 +231,28 @@ add_filter( 'upload_mimes', 'cc_mime_types' );
 
 //W3C validator
 
-add_filter('style_loader_tag', 'remove_type_attr', 10, 2);
-add_filter('script_loader_tag', 'remove_type_attr', 10, 2);
+add_filter( 'style_loader_tag', 'remove_type_attr', 10, 2 );
+add_filter( 'script_loader_tag', 'remove_type_attr', 10, 2 );
 
-function remove_type_attr($tag, $handle) {
+function remove_type_attr( $tag, $handle ) {
 	return preg_replace( "/type=['\"]text\/(javascript|css)['\"]/", '', $tag );
 }
 
-add_action('get_header', 'remove_adminbar_offset');
+add_action( 'get_header', 'remove_adminbar_offset' );
 
 function remove_adminbar_offset() {
-	remove_action('wp_head', '_admin_bar_bump_cb');
+	remove_action( 'wp_head', '_admin_bar_bump_cb' );
+}
+
+/** créer le tag selon l'id ou l'object retourner
+ *
+ * @param $input object ou ID
+ */
+function get_faaav_tag( $input, $inherit  = false) {
+	?>
+		<a class="tag <?php if($inherit == true) echo "camouflage";?>" style="background: <?php echo get_field( "couleur", $input );; ?>;"
+		   href="<?php echo esc_url( get_category_link( $input->term_id ) ) ?>">
+			<?php echo $input->name; ?>
+		</a>
+	<?php
 }

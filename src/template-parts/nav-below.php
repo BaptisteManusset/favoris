@@ -1,3 +1,4 @@
+
 <?php global $wp_query;
 if ( $wp_query->max_num_pages > 1 ) { ?>
 	<nav class="nav_below navigation" role="navigation">

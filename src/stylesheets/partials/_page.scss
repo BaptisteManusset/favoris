@@ -90,8 +90,8 @@ article {
   }
 }
 
-.entry_content {
-
+.no-results, .not-found {
+  @extend %gutter;
 }
 
 .screen-reader-text {

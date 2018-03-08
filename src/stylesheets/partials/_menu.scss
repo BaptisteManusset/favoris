@@ -54,8 +54,6 @@
 	form {
 	}
 
-
-
   }
 
   &_category {
@@ -115,6 +113,14 @@
 
 	}
   }
-
+  &_right {
+	text-align: right;
+  }
+  &_button {
+	padding: 1rem;
+	img {
+	  background: #fff;
+	}
+  }
 }
 

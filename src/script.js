@@ -85,8 +85,7 @@ $(document).ready(function () {
 
 
 	$(".search_form_toggle").click(function () {
-		console.log("zergthg");
-		$(this).toggleClass("actif");
+		$(".search_container").slideToggle();
 	})
 });
 $(document).resize(function () {

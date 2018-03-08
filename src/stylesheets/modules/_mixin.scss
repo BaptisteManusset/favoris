@@ -12,6 +12,10 @@
   }
 }
 
+.gutter {
+  @extend %gutter;
+}
+
 .button {
   min-width: 46px;
   height: 46px;
@@ -47,10 +51,19 @@
   color: #fff;
   display: inline-block;
   text-transform: uppercase;
+  &.camouflage {
+	font-size: 80%;
+  }
 }
 
-%firstletter{
-  &:first-letter{
-    //text-transform: uppercase;
+%firstletter {
+  &:first-letter {
+	//text-transform: uppercase;
   }
+}
+
+.text_reader {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
 }

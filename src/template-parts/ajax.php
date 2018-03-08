@@ -19,8 +19,7 @@
 				<?php
 				$categories = get_the_category();
 				if ( ! empty( $categories ) ) :
-					foreach ( $categories as $category ) {
-						?>
+					foreach ( $categories as $category ) {?>
 
 						<a class="tag modal_tag" style="background: <?php echo get_field( "couleur", $category );; ?>;"
 						   href="<?php echo esc_url( get_category_link( $category->term_id ) ) ?>">

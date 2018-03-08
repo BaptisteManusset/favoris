@@ -5,7 +5,15 @@
 	#searchsubmit {
 	  @extend .button;
 	}
-
+	fieldset {
+	  padding: 1rem;
+	  border: .1rem solid #000;
+	}
+	legend {
+	  padding: .3rem 1rem;
+	  background: #fff;
+	  font-size: 2rem;
+	}
   }
   &_parts {
 	margin: .2rem 0;
@@ -34,15 +42,16 @@
 	  margin: 0;
 	  &[name=s] {
 		width: 100%;
-		font-size: 8rem;
+		font-size: 6rem;
 		height: auto;
 		text-align: center;
-		padding: 2rem;
+		padding: 1rem;
 		margin-bottom: 2rem;
 		border: 0;
 	  }
 	  &[type=checkbox] {
 		box-sizing: border-box;
+		display: inline-block;
 	  }
 	}
 
@@ -51,6 +60,12 @@
 	@extend .tag;
 	margin-top: 0;
 	margin-left: 0;
+	font-size: 1.6rem;
 
+  }
+  &_query {
+	@extend .tag;
+	font-size: 80%;
+	background: grey;
   }
 }
