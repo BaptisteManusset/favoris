@@ -1,5 +1,5 @@
 <div class="search_container" style="display: none">
-	<form role="search" method="get" class="search_form" action="">
+	<form role="search" method="get" class="search_form" action="<?php echo get_site_url(); ?>">
 		<div class="search_parts">
 			<label class="screen-reader-text" for="s">Search for:</label>
 			<input type="text" value="" name="s" class="search_input_main" placeholder="Recherche" data-swplive="true"/>
@@ -9,13 +9,12 @@
 				<legend>Categories</legend>
 				<ul>
 					<?php
-					//for each category, show all posts
 					$cat_args   = array(
 						'orderby' => 'name',
 						'order'   => 'ASC'
 					);
 					$categories = get_categories( $cat_args );
-					foreach ( $categories as $category ) {
+					foreach ( $categories as $category ) :
 						if ( $category->slug != "non-classe" ):
 							$couleur = get_field( 'couleur', $category->taxonomy . '_' . $category->term_id );
 							?>
@@ -31,7 +30,7 @@
 							</li>
 							<?php
 						endif;
-					}
+					endforeach;
 					?>
 				</ul>
 			</fieldset>
