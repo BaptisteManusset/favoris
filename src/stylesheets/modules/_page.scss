@@ -40,7 +40,7 @@ h1 {
 }
 
 img {
-  background: #ddd;
+  background: transparent;
 }
 
 body {
@@ -53,6 +53,9 @@ body {
 
 	img, video {
 	  -webkit-filter: invert(1) hue-rotate(180deg);
+	  filter: invert(1) hue-rotate(180deg);
+	}
+	.noinvert {
 	  filter: invert(1) hue-rotate(180deg);
 	}
   }

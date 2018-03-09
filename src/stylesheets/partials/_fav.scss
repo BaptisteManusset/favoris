@@ -124,6 +124,13 @@ body {
 	  height: auto;
 	  margin-bottom: .5rem;
 	  color: black;
+	  &_icon {
+		height: 1em;
+		margin-bottom: -.1rem;
+	  }
+	}
+	img {
+	  background: transparent;
 	}
   }
 }

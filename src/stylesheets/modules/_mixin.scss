@@ -23,7 +23,7 @@
   @extend %gutter;
   margin: 0;
   margin-left: 1rem;
-  padding: 0 .5rem;
+  //padding: 1rem .5rem;
   font-size: 1rem;
   text-align: center;
   cursor: pointer;
@@ -32,7 +32,48 @@
   text-decoration: none;
   font-weight: bold;
   color: black;
+  position: relative;
+  border-radius: 300px;
+  padding: 1rem 1.5rem;
 
+  &:first-letter {
+	text-transform: uppercase;
+  }
+  &::after {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	content: " ";
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	animation: all 1s;
+	transform: scale(0);
+	//width: 0;
+	transition: all .5s;
+	border-radius: 300px;
+	box-shadow: inset 0px 0px 130px 1px #49ff78;
+	z-index: -1;
+
+  }
+  &:hover {
+	//color: white;
+	position: relative;
+	z-index: 1;
+	border: .1rem solid transparent;
+
+	&::after {
+	  animation: all 1s;
+	  background: #49ff78;
+	  transform: scale(1);
+	  //box-shadow: inset 0px 0px 130px 1px rgba(73, 255, 120, 0);
+	  //border-radius: 0;
+	}
+  }
+  &:focus {
+	border: 1px solid #000;
+  }
 }
 
 %gradiant {

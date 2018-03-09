@@ -119,11 +119,15 @@
   &_button {
 	position: relative;
 	overflow: hidden;
+	border-radius: 6rem;
+	padding: 1rem;
+	border: 0;
 	img {
 	  background: transparent;
 	  position: relative;
 	  z-index: 1;
 	  transition: all .3s;
+	  margin: 1rem;
 	}
 	&::after {
 	  margin: 0;
@@ -148,8 +152,8 @@
 		animation: all 1s;
 		background: #49ff78;
 		transform: scale(1);
-		box-shadow: inset 0px 0px 130px 1px rgba(73, 255, 120, 0);
-		border-radius: 0;
+		//box-shadow: inset 0px 0px 130px 1px rgba(73, 255, 120, 0);
+		//border-radius: 0;
 	  }
 	  img {
 		filter: invert(1);
