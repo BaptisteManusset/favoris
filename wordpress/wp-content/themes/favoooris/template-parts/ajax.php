@@ -34,10 +34,10 @@
 			</div>
 			<div class="modal_footer">
 				<?php $lien = get_field( "lien" ); ?>
-				<a href="<?php echo $lien ?>" class="modal_permalink" rel="nofollow" target="_blank">Lien du site</a>
+				<a href="<?php echo $lien ?>" class="modal_permalink" rel="nofollow" target="_blank"><span class="text_reader">Lien du site</span>➥</a>
 				<a href="<?php the_permalink(); ?>" class="modal_permalink">Page du favoris</a>
 				<?php if ( is_admin() == true ): ?>
-					<a href="<?php echo get_edit_post_link(); ?>" class="modal_edit" target="_blank">edit</a>
+					<a href="<?php echo get_edit_post_link(); ?>" class="modal_edit" target="_blank"><span class="text_reader">modifier</span>✎</a>
 				<?php endif; ?>
 
 				<a href="https://twitter.com/intent/tweet/?url=<?php the_permalink(); ?>&text=<?php echo urlencode( "regardez ce superbe favoris !" ); ?>"

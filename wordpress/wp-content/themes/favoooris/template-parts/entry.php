@@ -29,8 +29,8 @@
 		</div>
 		<div class="fav_action">
 			<?php $lien = get_field( "lien" ); ?>
-			<a href="<?php echo $lien ?>" class="button fav_permalink" rel="nofollow" target="_blank">Lien du site</a>
-			<button class="button fav_modal_trigger">Voir plus</button>
+			<a href="<?php echo $lien ?>" class="button fav_permalink" rel="nofollow" target="_blank"><span class="text_reader">Lien du site</span>➥</a>
+			<button class="button fav_modal_trigger"><span class="text_reader">Voir plus</span>+</button>
 		</div>
 	</div>
 </div>
