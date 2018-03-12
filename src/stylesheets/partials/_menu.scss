@@ -86,7 +86,7 @@
 	&_item {
 	  display: block;
 	  padding: 1rem;
-	  //@extend .button;
+	  //@extend .button;;
 	  border: 0;
 	  border-bottom: .1rem solid #000;
 	  margin: 0 $base-padding;
@@ -101,7 +101,7 @@
 	  position: fixed;
 	  top: 1rem;
 	  right: 1rem;
-	  @extend .button;
+	  @extend .button;;
 	  @media only screen and (min-width: 768px) {
 		top: $base-padding*4;
 		right: $base-padding*4;
@@ -109,7 +109,7 @@
 	}
 	&_toggle {
 	  float: right;
-	  @extend .button
+	  @extend .button;
 
 	}
   }

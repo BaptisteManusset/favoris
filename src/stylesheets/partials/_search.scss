@@ -3,7 +3,7 @@
   &_container {
 	@extend %gutter;
 	#searchsubmit {
-	  @extend .button;
+	  @extend .button;;
 	}
 	fieldset {
 	  padding: 1rem;
@@ -22,7 +22,7 @@
   }
   &_form {
 	&_toggle {
-	  @extend .button;
+	  @extend .button;;
 	}
 	select {
 	  margin-left: 0;

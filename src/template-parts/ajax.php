@@ -10,7 +10,7 @@
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/imgnotfound.svg"
 					     alt="<?php the_title(); ?>">
 				<?php endif; ?>
-				<button class="modal_button_close">fermer</button>
+				<button class="modal_button_close button"><span class="text_reader">fermer</span>⛌</button>
 
 			</div>
 			<div class="modal_title">
@@ -19,7 +19,7 @@
 				<?php
 				$categories = get_the_category();
 				if ( ! empty( $categories ) ) :
-					foreach ( $categories as $category ) {?>
+					foreach ( $categories as $category ) { ?>
 
 						<a class="tag modal_tag" style="background: <?php echo get_field( "couleur", $category );; ?>;"
 						   href="<?php echo esc_url( get_category_link( $category->term_id ) ) ?>">
@@ -34,17 +34,18 @@
 			</div>
 			<div class="modal_footer">
 				<?php $lien = get_field( "lien" ); ?>
-				<a href="<?php echo $lien ?>" class="modal_permalink" rel="nofollow" target="_blank">Lien du site</a>
-				<a href="<?php the_permalink(); ?>" class="modal_permalink">Page du favoris</a>
+				<a href="<?php echo $lien ?>" class="modal_permalink button" rel="nofollow" target="_blank">
+					<span class="text_reader">Lien du site</span>🔗</a>
+				<a href="<?php the_permalink(); ?>" class="modal_permalink button">Page du favoris</a>
 				<?php if ( is_admin() == true ): ?>
-					<a href="<?php echo get_edit_post_link(); ?>" class="modal_edit" target="_blank">edit</a>
+					<a href="<?php echo get_edit_post_link(); ?>" class="modal_edit button" target="_blank">
+						<span class="text_reader">modifier</span>🖍</a>
 				<?php endif; ?>
 
 				<a href="https://twitter.com/intent/tweet/?url=<?php the_permalink(); ?>&text=<?php echo urlencode( "regardez ce superbe favoris !" ); ?>"
-				   class="modal_partage">twitter</a>
+				   class="modal_partage button">twitter</a>
 			</div>
 		</div>
-
 	</div>
 </div>
 

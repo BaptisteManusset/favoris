@@ -12,12 +12,9 @@
 			</a>
 		</div>
 		<div class="fav_title">
-
 			<h3><?php the_title(); ?></h3>
-
 		</div>
 		<div class="fav_content">
-
 			<?php
 			$categories = get_the_category();
 			if ( ! empty( $categories ) ) : ?>

@@ -278,10 +278,6 @@ $(document).ready(function () {
 $(document).resize(function () {
 	$(".fav_dummy").width($(".fav_card:first").width());
 });
-$(document).ajaxStop(function () {
-	$("body").addClass("loading");
-});
-
 
 $(document).ajaxStop(function () {
 	$("body").removeClass("loading");
@@ -295,6 +291,18 @@ $(document).ajaxStop(function () {
 
 	$(".modal_background").click(function () {
 		$(".modal_background").hide();
+	});
+	$(".button").mouseenter(function (e) {
+		var text_reader = $(this).children(".text_reader");
+		text_reader = text_reader.text();
+		if (text_reader.length != 0) {
+			$("body .tooltip").remove();
+			$("body").append("<div class=\"tooltip\">" + text_reader + "</div>");
+		}
+	});
+
+	$(".button").mouseleave(function (e) {
+		$("body .tooltip").remove();
 	});
 });
 

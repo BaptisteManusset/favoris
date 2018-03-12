@@ -68,6 +68,8 @@ body {
 
 	&_action {
 	  flex: 0.5;
+	  display: flex;
+
 	}
 	&_card {
 	  margin: 0;
@@ -119,11 +121,13 @@ body {
 	  }
 	}
 	&_link, &_modal_trigger, &_permalink {
-	  @extend .button;
-	  padding: .5rem;
-	  height: auto;
-	  margin-bottom: .5rem;
-	  color: black;
+	  @extend .button;;
+	  //padding: .5rem;
+	  //height: auto;
+	  //margin-bottom: .5rem;
+	  //color: white;
+	  width: 3rem;
+	  //background: $text-color;
 	  &_icon {
 		height: 1em;
 		margin-bottom: -.1rem;

@@ -98,15 +98,12 @@
 	  top: 1rem;
 	  right: 1rem;
 	  @extend .button;
+	  max-width:3rem;
+	  overflow: hidden;
 	}
   }
   &_permalink, &_partage, &_edit {
-	@extend .button;
-	line-height: 42px;
-  }
-  &_permalink {
-	//bottom: 1rem;
-	//position: absolute;
+	font-size: inherit;
   }
   &_title {
 	//text-align: center;

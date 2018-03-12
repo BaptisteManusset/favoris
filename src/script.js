@@ -1,7 +1,8 @@
 /*commentaire*/
 
 $(document).ready(function () {
-	$("button.fav_modal_trigger").click(function (e) {
+	$(".fav_modal_trigger").click(function (e) {
+			e.preventDefault();
 			var id = $(this).parents(".fav_card").attr("data-id");
 			var thispostmodalcount = $("#modal_container #modal-post-" + id).length;
 			if (thispostmodalcount <= 0) {
@@ -86,15 +87,25 @@ $(document).ready(function () {
 
 	$(".search_form_toggle").click(function () {
 		$(".search_container").slideToggle();
-	})
+	});
+
+
+	$(".button").mouseenter(function (e) {
+		var text_reader = $(this).children(".text_reader");
+		text_reader = text_reader.text();
+		if (text_reader.length != 0) {
+			$("body .tooltip").remove();
+			$("body").append("<div class=\"tooltip\">" + text_reader + "</div>");
+		}
+	});
+
+	$(".button").mouseleave(function (e) {
+		$("body .tooltip").remove();
+	});
 });
 $(document).resize(function () {
 	$(".fav_dummy").width($(".fav_card:first").width());
 });
-$(document).ajaxStop(function () {
-	$("body").addClass("loading");
-});
-
 
 $(document).ajaxStop(function () {
 	$("body").removeClass("loading");
@@ -108,5 +119,25 @@ $(document).ajaxStop(function () {
 
 	$(".modal_background").click(function () {
 		$(".modal_background").hide();
+	});
+	$(".button").mouseenter(function (e) {
+		var text_reader = $(this).children(".text_reader");
+		text_reader = text_reader.text();
+		if (text_reader.length != 0) {
+			$("body .tooltip").remove();
+			$("body").append("<div class=\"tooltip\">" + text_reader + "</div>");
+		}
+	});
+
+	$(".button").mouseleave(function (e) {
+		$("body .tooltip").remove();
+	});
+});
+
+
+$(document).on('mousemove', function (e) {
+	$('.tooltip').css({
+		left: e.clientX + 10,
+		top: e.clientY + 10
 	});
 });

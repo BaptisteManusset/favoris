@@ -13,7 +13,7 @@
 	max-width: 80%;
   }
   button {
-	@extend .button;
+	@extend .button;;
 	text-align: center;
   }
   &_title {
@@ -25,7 +25,7 @@
 }
 
 input[type=text], input[type=url], textarea, select, button {
-  @extend .button;
+  @extend .button;;
 
   margin: .5rem 1rem;
   padding: 0.5rem;
