@@ -5,7 +5,7 @@
 			<header class="header">
 				<h1 class="entry-title"><?php the_title(); ?> <span class="meta-sep">|</span> <a
 							href="<?php echo get_permalink( $post->post_parent ); ?>"
-							title="<?php printf( __( 'Return to %s', 'blankslate' ), esc_html( get_the_title( $post->post_parent ), 1 ) ); ?>"
+							title="<?php printf( __( 'Return to %s', 'favoooris' ), esc_html( get_the_title( $post->post_parent ), 1 ) ); ?>"
 							rev="attachment"><span
 								class="meta-nav">&larr; </span><?php echo get_the_title( $post->post_parent ); ?></a>
 				</h1> <?php edit_post_link(); ?>

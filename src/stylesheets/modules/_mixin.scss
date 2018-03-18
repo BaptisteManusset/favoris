@@ -58,6 +58,7 @@
   color: #fff;
   display: inline-block;
   text-transform: uppercase;
+  cursor: pointer;
   &.camouflage {
 	font-size: 80%;
   }
@@ -84,4 +85,9 @@
   @extend .gutter;
   border: .1rem solid #000;
   z-index: 9999;
+}
+
+.private {
+  font-style: italic !important;
+  color: gray;
 }

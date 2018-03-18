@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-<head>
+<head id="top">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -11,10 +11,12 @@
 	<meta name="msapplication-TileImage" content="<?php echo get_site_icon_url() ?>">
 	<meta name="theme-color" content="#49ff78">
 	<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>"/>
+	<!--head-->
 	<?php wp_head(); ?>
+	<!--end head-->
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> >
 <div class="row">
 	<div class="col">
 		<div class="menu_main">

@@ -1,4 +1,4 @@
-//@import url('https://fonts.googleapis.com/css?family=Cabin:400,400i,500,500i,600,600i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Cabin:400,400i,500,500i,600,600i,700,700i');
 
 $base-font-size: 17px;
 
@@ -7,9 +7,7 @@ $base-font-size: 17px;
 }
 
 $base-padding: em(20px);
-$border-radius: em(20px);
 $h1-size: em(60px);
-$h2-size: em(50px);
 
 * {
   margin: 0;
@@ -25,6 +23,9 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 900 !important;
+  &:first-letter {
+	text-transform: capitalize;
+  }
 }
 
 h1 {
@@ -37,6 +38,24 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: $h1-size;
+}
+
+h2 {
+  &.big {
+  }
+  &.subline {
+	font-size: 4rem;
+	font-weight: 500;
+	font-style: italic;
+	&::after {
+	  margin-top: .5rem;
+	  content: "";
+	  display: block;
+	  width: 12rem;
+	  height: 1rem;
+	  background: $main-color;
+	}
+  }
 }
 
 img {
@@ -55,8 +74,16 @@ body {
 	  -webkit-filter: invert(1) hue-rotate(180deg);
 	  filter: invert(1) hue-rotate(180deg);
 	}
-	.noinvert {
-	  filter: invert(1) hue-rotate(180deg);
+	.noinvert, img[src$="svg"] {
+	  filter: invert(0) hue-rotate(0);
+	}
+  }
+  &.home {
+	//background: $main-color;
+	&.nightmode {
+	  background: darkslategrey;
 	}
   }
 }
+
+

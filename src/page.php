@@ -1,22 +1,20 @@
 <?php get_header(); ?>
-	<section id="content" role="main">
-		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-			<article id="post-<?php the_ID(); ?>" <?php post_class("entry"); ?>>
-				<header class="header">
-					<h1 class="entry_title"><?php the_title(); ?></h1> <?php edit_post_link(); ?>
-				</header>
-				<section class="entry_content">
-					<?php if ( has_post_thumbnail() ) {
-						the_post_thumbnail();
-					} ?>
-					<?php the_content(); ?>
-					<div class="entry_links"><?php wp_link_pages(); ?></div>
-				</section>
-			</article>
-			<?php if ( ! post_password_required() ) {
-				comments_template( '', true );
-			} ?>
-		<?php endwhile; endif; ?>
-	</section>
+	<div class="row">
+		<div class="col">
+			<div class="fav_container ">
+				<?php query_posts( 'showposts=30' );
+				if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+					<?php get_template_part( 'template-parts/entry' ); ?>
+					<?php //comments_template(); ?>
+				<?php endwhile; endif; ?>
+				<?php get_template_part( 'template-parts/nav', 'below' ); ?>
+			</div>
+		</div>
+	</div>
+
+
+	<!--// New Post Form -->
+<?php get_template_part( 'template-parts/form', 'post' ); ?>
+	<!--// New Post Form -->
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

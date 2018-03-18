@@ -13,6 +13,15 @@ body {
 }
 
 header.header {
+  color: #fff;
+  background: #000;
+}
+
+a {
+  color: black;
+  &:first-letter {
+	text-transform: uppercase;
+  }
 }
 
 .nav {
@@ -35,9 +44,10 @@ header.header {
   }
 }
 
-footer {
-  &.footer_main {
+.footer {
+  &_main {
 	@extend %gutter;
+	position: relative;
 	.row {
 	  flex-direction: column;
 	  margin-top: 1rem;
@@ -53,17 +63,26 @@ footer {
 	  li {
 		list-style: none;
 	  }
-	  a {
-		color: #000;
-		text-decoration: none;
-		font-weight: bold;
-		font-style: italic;
-		&:hover {
-		  text-decoration: underline;
+	  p {
+		a {
+		  color: #000;
+		  text-decoration: none;
+		  font-weight: bold;
+		  font-style: italic;
+		  &:hover {
+			text-decoration: underline;
+		  }
 		}
 	  }
 	}
-
+  }
+  &_top {
+	position: absolute;
+	bottom: 2rem;
+	right: 2rem;
+	margin: 0;
+	font-style: normal;
+	width: 3rem;
   }
 }
 
@@ -72,7 +91,6 @@ header.header {
 }
 
 article {
-  //@extend %gutter;
   padding: 1rem;
   .entry {
 	&_content {

@@ -102,6 +102,34 @@ $(document).ready(function () {
 	$(".button").mouseleave(function (e) {
 		$("body .tooltip").remove();
 	});
+
+
+	jQuery('#submit').click(function (e) {
+		jQuery.ajax({
+			url: ajaxurl,
+			type: 'POST',
+			dataType: "json",
+			data: {
+				action: 'single_post',
+				title: jQuery('#post_title').val(),
+				cat: jQuery('#post_category').val(),
+				thumbnail: jQuery('#post_thumbnail').val(),
+				url: jQuery('#post_url').val(),
+				isprivate: function () {
+					if (jQuery('#post_private').is(':checked')) {
+						return "private";
+					}
+					return "public";
+				},
+				content: jQuery('#post_content').val()
+			},
+			success: function (response) {
+				alert('Ajout reussie !');
+				jQuery("#post_insert input, #post_insert textarea").val("");
+			}
+		});
+		return false;
+	});
 });
 $(document).resize(function () {
 	$(".fav_dummy").width($(".fav_card:first").width());
@@ -140,4 +168,11 @@ $(document).on('mousemove', function (e) {
 		left: e.clientX + 10,
 		top: e.clientY + 10
 	});
+});
+$(document).on("click", "a[href^=\"#\"], .anchor_link", function (event) {
+	event.preventDefault();
+
+	$("html, body").animate({
+		scrollTop: $($.attr(this, "href")).offset().top
+	}, 500);
 });

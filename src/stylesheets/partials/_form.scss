@@ -15,6 +15,7 @@
   button {
 	@extend .button;;
 	text-align: center;
+	padding: 1rem .3rem;
   }
   &_title {
 	font-size: 3rem;
@@ -25,13 +26,20 @@
 }
 
 input[type=text], input[type=url], textarea, select, button {
-  @extend .button;;
-
+  //@extend .button;;
+  //&:hover {
+  //@extend .button;;
+  //}
+  font-size: inherit;
+  color: black;
   margin: .5rem 1rem;
   padding: 0.5rem;
   box-shadow: none;
   text-align: left;
   width: 15rem;
+  background: #fff;
+  border: .1rem solid #000;
+  padding: 1rem .3rem;
 }
 
 input[type=checkbox] {

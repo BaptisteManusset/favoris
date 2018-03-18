@@ -73,8 +73,8 @@ if ( current_user_can( "edit_posts" ) == true ):
 						<a class="tag fav_tag" style="background: #81d742;" href="#">veille </a>
 					</div>
 					<div class="fav_action">
-						<a href="#" class="button fav_permalink">Lien du site</a>
-						<button class="button fav_modal_trigger">Voir plus</button>
+						<a href="#" class="button fav_permalink">➥</a>
+						<button class="button fav_modal_trigger">+</button>
 					</div>
 				</div>
 			</div>

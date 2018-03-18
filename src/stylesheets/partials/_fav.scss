@@ -37,12 +37,12 @@ body {
 	  width: auto;
 	  flex: .7;
 	  overflow: hidden;
-
+	  padding: 0;
 	}
 	&_title {
-	  padding: 1rem;
-	  padding-bottom: 0px;
-	  flex: 1.5;
+	  padding: 0 1rem;
+	  //padding-bottom: 0px;
+	  flex: 1;
 	  overflow: hidden;
 	  max-width: 90vw;
 
@@ -98,6 +98,8 @@ body {
 		width: 20%;
 		padding: 1rem;
 	  }
+	  &.status-private {
+	  }
 	}
 	&_image {
 
@@ -106,7 +108,8 @@ body {
 	  display: inline-block;
 	  text-align: center;
 	  height: 100%;
-
+	  overflow: hidden;
+	  border: 1px solid #cccccc;
 	  img {
 		box-sizing: border-box;
 		height: 12rem;

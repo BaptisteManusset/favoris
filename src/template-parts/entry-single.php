@@ -11,9 +11,8 @@
 			?>
 			<a href="<?php echo $lien ?>" class="solo_lien" rel="nofollow" target="_blank"> Lien du site</a>
 			<?php if ( current_user_can( 'administrator' ) == true ): ?>
-				<a href="<?php echo get_edit_post_link(); ?>" class="modal_edit" target="_blank">edit</a>
+				<a href="<?php echo get_edit_post_link(); ?>" class="button" target="_blank">edit</a>
 			<?php endif; ?>
-
 		</div>
 
 		<?php

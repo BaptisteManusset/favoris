@@ -1,7 +1,7 @@
 <?php
-add_action( 'after_setup_theme', 'blankslate_setup' );
-function blankslate_setup() {
-	load_theme_textdomain( 'blankslate', get_template_directory() . '/languages' );
+add_action( 'after_setup_theme', 'favoooris_setup' );
+function favoooris_setup() {
+	load_theme_textdomain( 'favoooris', get_template_directory() . '/languages' );
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'post-thumbnails' );
@@ -13,24 +13,24 @@ function blankslate_setup() {
 		$content_width = 640;
 	}
 	register_nav_menus(
-		array( 'main-menu' => __( 'Main Menu', 'blankslate' ) )
+		array( 'main-menu' => __( 'Main Menu', 'favoooris' ) )
 	);
 }
 
-add_action( 'wp_enqueue_scripts', 'blankslate_load_scripts' );
-function blankslate_load_scripts() {
+add_action( 'wp_enqueue_scripts', 'favoooris_load_scripts' );
+function favoooris_load_scripts() {
 	wp_enqueue_script( 'jquery' );
 }
 
-add_action( 'comment_form_before', 'blankslate_enqueue_comment_reply_script' );
-function blankslate_enqueue_comment_reply_script() {
+add_action( 'comment_form_before', 'favoooris_enqueue_comment_reply_script' );
+function favoooris_enqueue_comment_reply_script() {
 	if ( get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 
-add_filter( 'the_title', 'blankslate_title' );
-function blankslate_title( $title ) {
+add_filter( 'the_title', 'favoooris_title' );
+function favoooris_title( $title ) {
 	if ( $title == '' ) {
 		return '&rarr;';
 	} else {
@@ -38,15 +38,15 @@ function blankslate_title( $title ) {
 	}
 }
 
-add_filter( 'wp_title', 'blankslate_filter_wp_title' );
-function blankslate_filter_wp_title( $title ) {
+add_filter( 'wp_title', 'favoooris_filter_wp_title' );
+function favoooris_filter_wp_title( $title ) {
 	return $title . esc_attr( get_bloginfo( 'name' ) );
 }
 
-add_action( 'widgets_init', 'blankslate_widgets_init' );
-function blankslate_widgets_init() {
+add_action( 'widgets_init', 'favoooris_widgets_init' );
+function favoooris_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Sidebar Widget Area', 'blankslate' ),
+		'name'          => __( 'Sidebar Widget Area', 'favoooris' ),
 		'id'            => 'primary-widget-area',
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget'  => "</li>",
@@ -55,15 +55,15 @@ function blankslate_widgets_init() {
 	) );
 }
 
-function blankslate_custom_pings( $comment ) {
+function favoooris_custom_pings( $comment ) {
 	$GLOBALS['comment'] = $comment;
 	?>
 	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>"><?php echo comment_author_link(); ?></li>
 	<?php
 }
 
-add_filter( 'get_comments_number', 'blankslate_comments_number' );
-function blankslate_comments_number( $count ) {
+add_filter( 'get_comments_number', 'favoooris_comments_number' );
+function favoooris_comments_number( $count ) {
 	if ( ! is_admin() ) {
 		global $id;
 		$comments_by_type = &separate_comments( get_comments( 'status=approve&post_id=' . $id ) );
@@ -91,6 +91,7 @@ if ( ! function_exists( 'get_category_color' ) ) {
 if ( ! class_exists( 'Acf' ) ) {
 	include_once( 'externe/acf/acf.php' );
 }
+
 
 //ajout du script
 add_action( 'wp_enqueue_scripts', 'add_js_scripts' );
@@ -159,7 +160,7 @@ add_action( 'wp_ajax_nopriv_single_post', 'single_post_insert' );
  * @return string
  */
 function title_format( $content ) {
-	return "<i>🔒</i>%s<i>🔒</i>";
+	return "<b class='private'>%s</b>";
 }
 
 add_filter( "private_title_format", "title_format" );
@@ -248,11 +249,109 @@ function remove_adminbar_offset() {
  *
  * @param $input object ou ID
  */
-function get_faaav_tag( $input, $inherit  = false) {
+function get_faaav_tag( $input, $inherit = false ) {
 	?>
-		<a class="tag <?php if($inherit == true) echo "camouflage";?>" style="background: <?php echo get_field( "couleur", $input );; ?>;"
-		   href="<?php echo esc_url( get_category_link( $input->term_id ) ) ?>">
-			<?php echo $input->name; ?>
-		</a>
+	<a class="tag <?php if ( $inherit == true ) {
+		echo "camouflage";
+	} ?>" style="background: <?php echo get_field( "couleur", $input );; ?>;"
+	   href="<?php echo esc_url( get_category_link( $input->term_id ) ) ?>">
+		<?php echo $input->name; ?>
+	</a>
 	<?php
 }
+
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
+
+
+function my_searchwp_live_search_configs( $configs ) {
+	// override some defaults
+	$configs['default'] = array(
+		'engine'  => 'default',                      // search engine to use (if SearchWP is available)
+		'input'   => array(
+			'delay'     => 100,                 // wait 500ms before triggering a search
+			'min_chars' => 2,                   // wait for at least 3 characters before triggering a search
+		),
+		'results' => array(
+			'position' => 'bottom',            // where to position the results (bottom|top)
+			'width'    => 'auto',              // whether the width should automatically match the input (auto|css)
+			'height'   => 'css',              // whether the width should automatically match the input (auto|css)
+			'offset'   => array(
+				'x' => 0,                   // x offset (in pixels)
+				'y' => 5                    // y offset (in pixels)
+			),
+		),
+		'spinner' => array(                         // powered by http://fgnass.github.io/spin.js/
+			'lines'     => 10,              // number of lines in the spinner
+			'length'    => 8,               // length of each line
+			'width'     => 4,               // line thickness
+			'radius'    => 8,               // radius of inner circle
+			'corners'   => 1,               // corner roundness (0..1)
+			'rotate'    => 0,               // rotation offset
+			'direction' => 1,               // 1: clockwise, -1: counterclockwise
+			'color'     => '#000',          // #rgb or #rrggbb or array of colors
+			'speed'     => 1,               // rounds per second
+			'trail'     => 60,              // afterglow percentage
+			'shadow'    => false,           // whether to render a shadow
+			'hwaccel'   => false,           // whether to use hardware acceleration
+			'className' => 'spinner',       // CSS class assigned to spinner
+			'zIndex'    => 2000000000,      // z-index of spinner
+			'top'       => '50%',           // top position (relative to parent)
+			'left'      => '50%',           // left position (relative to parent)
+		),
+	);
+	// add an additional config called 'my_config'
+	$configs['my_config'] = array(
+		'engine'  => 'supplemental',                 // search engine to use (if SearchWP is available)
+		'input'   => array(
+			'delay'     => 200,                 // wait 500ms before triggering a search
+			'min_chars' => 2,                   // wait for at least 3 characters before triggering a search
+		),
+		'results' => array(
+			'position' => 'top',               // where to position the results (bottom|top)
+			'width'    => 'css',               // whether the width should automatically match the input (auto|css)
+			'offset'   => array(
+				'x' => 0,                   // x offset (in pixels)
+				'y' => 0                    // y offset (in pixels)
+			),
+		),
+		'spinner' => array(                         // powered by http://fgnass.github.io/spin.js/
+			'lines'     => 8,               // number of lines in the spinner
+			'length'    => 6,               // length of each line
+			'width'     => 5,               // line thickness
+			'radius'    => 6,               // radius of inner circle
+			'corners'   => 1,               // corner roundness (0..1)
+			'rotate'    => 0,               // rotation offset
+			'direction' => 1,               // 1: clockwise, -1: counterclockwise
+			'color'     => '#000',          // #rgb or #rrggbb or array of colors
+			'speed'     => 1,               // rounds per second
+			'trail'     => 60,              // afterglow percentage
+			'shadow'    => false,           // whether to render a shadow
+			'hwaccel'   => false,           // whether to use hardware acceleration
+			'className' => 'spinner',       // CSS class assigned to spinner
+			'zIndex'    => 2000000000,      // z-index of spinner
+			'top'       => '50%',           // top position (relative to parent)
+			'left'      => '50%',           // left position (relative to parent)
+		),
+	);
+
+	return $configs;
+}
+
+add_filter( 'searchwp_live_search_configs', 'my_searchwp_live_search_configs' );
+//https://searchwp.com/extensions/live-search/
+
+
+function my_remove_searchwp_live_search_theme_css() {
+	wp_dequeue_style( 'searchwp-live-search' );
+}
+add_action( 'wp_enqueue_scripts', 'my_remove_searchwp_live_search_theme_css' );
+
+//add_filter( 'searchwp_live_search_base_styles', '__return_false' );
+
+function my_searchwp_live_search_posts_per_page() {
+	return 20; // return 20 results
+}
+add_filter( 'searchwp_live_search_posts_per_page', 'my_searchwp_live_search_posts_per_page' );

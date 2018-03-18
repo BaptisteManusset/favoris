@@ -75,7 +75,8 @@
 	overflow: hidden;
 	img {
 	  width: 100%;
-	  max-height: 50vh;
+	  //max-height: 50vh;
+	  transform: translateY(-50%)
 	}
   }
   &_header {
@@ -88,9 +89,11 @@
 	max-height: 19rem;
   }
   &_footer {
-	padding: .2rem 0 1rem;
-	background: #fff;
-
+	//padding: .2rem 0 1rem;
+	//padding-bottom: 2rem;
+	//background: #fff;
+	//margin-bottom: 2rem;
+	padding: 1rem;
   }
   &_button {
 	&_close {
@@ -98,12 +101,14 @@
 	  top: 1rem;
 	  right: 1rem;
 	  @extend .button;
-	  max-width:3rem;
+	  max-width: 3rem;
 	  overflow: hidden;
 	}
   }
   &_permalink, &_partage, &_edit {
 	font-size: inherit;
+	font-weight: bold;
+	font-size: 2rem;
   }
   &_title {
 	//text-align: center;
@@ -124,3 +129,4 @@
 	}
   }
 }
+
